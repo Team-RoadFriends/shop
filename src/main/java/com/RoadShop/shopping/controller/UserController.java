@@ -4,6 +4,7 @@ import com.RoadShop.shopping.dto.UserDto;
 import com.RoadShop.shopping.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
@@ -24,6 +25,7 @@ public class UserController {
   @PostMapping("/singUp")
   @ResponseBody
   public void singUp(@RequestBody UserDto userDto){
+    System.out.println(userDto);
     userService.signUp(userDto);
   }
 
@@ -35,7 +37,8 @@ public class UserController {
 
   @PostMapping("/login")
   @ResponseBody
-  public void logIn(@RequestBody UserDto userDto){
-    userService.logIn(userDto.getEmail(), userDto.getPassword());
+  public String logIn(@RequestParam("email") String email, Model model){
+
+    return "redirect:/user";
   }
 }

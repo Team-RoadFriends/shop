@@ -4,4 +4,7 @@
     <insert id="signUp" parameterType="com.RoadShop.shopping.dto.UserDto" useGeneratedKeys="true" keyProperty="id">
         insert into users (email, PASSWORD, name, phone) values (#{email}, #{password}, #{name}, #{phone});
     </insert>
+    <select id="findUser" parameterType="com.RoadShop.shopping.dto.UserDto">
+        select email from users where email=#{email};
+    </select>
 </mapper>
