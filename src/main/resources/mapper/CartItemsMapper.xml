@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.RoadShop.shopping.mapper.CartItemsMapper">
+
+    <!--    리스트 불러오기-->
+    <select id="getCartItemList" resultType="com.RoadShop.shopping.dto.CartItemsDto">
+<!--        SELECT cart_item_id, user_id, product_id, quantity, created_at from cart_items ORDER BY cart_item_id LIMIT 5;-->
+        SELECT * from cart_items ORDER BY cart_item_id;
+    </select>
+
+    <!--    불러온 리스트에서 목록마다 상세보기-->
+    <select id="getCartItemById" resultType="com.RoadShop.shopping.dto.CartItemsDto">
+        SELECT * from cart_items WHERE cart_item_id = #{id};
+    </select>
+
+    <!--    불러온 리스트 수정하기-->
+    <update id="updateCartItem" parameterType="com.RoadShop.shopping.dto.CartItemsDto">
+        UPDATE cart_items SET NAME = #{item} WHERE id = #{id};
+    </update>
+
+    <!--    불러온 리스트 삭제하기-->
+    <delete id="removeCartItem">
+        DELETE FROM cart_items WHERE cart_item_id = #{id};
+    </delete>
+</mapper>
