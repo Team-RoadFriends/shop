@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.RoadShop.shopping.mapper.ProductMapper">
+    <!-- 상품 등록 -->
+    <insert id="insertProduct" parameterType="com.RoadShop.shopping.dto.ProductDto"
+    useGeneratedKeys="true" keyProperty="product_id">
+        INSERT INTO products (category_id, product_name, price, stock_quantity, description, created_at)
+        VALUES (#{categoryId}, #{productName}, #{price}, #{stockQuantity}, #{description}, #{createAt});
+    </insert>
+</mapper>
