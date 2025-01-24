@@ -1,13 +1,33 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!--      layout:decorate="~{layout/base} > "-->
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ORDER PAGE</title>
+    <title>ORDER 목록</title>
 </head>
 <body>
-<h1>ORDER HERE</h1>
+<!--    <main layout:fragment="content">-->
+    <main>
+        <h1>ORDER LIST</h1>
+            <table>
+                <tr>
+                    <th>주문번호</th>
+                    <th>주문상태</th>
+                    <th>주문금액</th>
+                    <th>배달주소</th>
+                    <th>주문시각</th>
+                </tr>
+                <!-- 리스트 반복 출력 -->
+                <tr th:each="order:${orders}">
+<!--                    <td th:text="${order.order_id}"></td>-->
+<!--                    <td th:text="${order.order_status}"></td>-->
+<!--                    <td th:text="${order.total_amount}"></td>-->
+<!--                    <td th:text="${order.shipping_address}"></td>-->
+<!--                    <td th:text="${order.created_at}"></td>-->
+                </tr>
+                <!------------------->
+            </table>
+    </main>
 </body>
 </html>
