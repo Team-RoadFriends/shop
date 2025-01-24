@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>장바구니 상세보기</title>
+
+  <style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+  </style>
+
+</head>
+<body>
+
+  <h1>장바구니 상세보기</h1>
+
+  <table>
+    <tr>
+      <th>카트 아이템 아이디</th>
+      <th>유저 아이디</th>
+      <th>상품 아이디</th>
+      <th>상품 수량</th>
+      <th>장바구니에 담은 날짜</th>
+    </tr>
+
+    <tr>
+      <td th:text="${cart_items.cartItemId}"></td>
+      <td th:text="${cart_items.userId}"></td>
+      <td th:text="${cart_items.prdId}"></td>
+      <td th:text="${cart_items.quantity}"></td>
+      <td th:text="${cart_items.createdAt}"></td>
+      <!--                    <td th:text="${#dates.format(cart_items.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></td>-->
+    </tr>
+
+  </table>
+
+  <br>
+  <button type="button" onclick="window.location.href='/show-cart'">리스트로 돌아가기</button>
+
+</body>
+</html>
